@@ -109,14 +109,14 @@ $ python tasks.py report # Statistics"""
         i = 1
         for key, value in self.current_items.items():
             print(f"{i}. {value} [{key}]")
-            i += 1
+            i = i +  1
 
     def report(self):
         print(f"Pending : {len(self.current_items)}")
         i = 1
         for key, value in self.current_items.items():
             print(f"{i}. {value} [{key}]")
-            i += 1
+            i = i + 1
 
         print()
         print(f"Completed : {len(self.completed_items)}")
