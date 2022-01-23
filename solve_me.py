@@ -62,11 +62,13 @@ $ python tasks.py report # Statistics""")
     def add(self, args):
         args[0] = int(args[0])
         cp = args[0]
+        #print(self.current_items)
         while cp in self.current_items.keys():
             self.current_items[-cp] = self.current_items.pop(cp)
             cp += 1
         self.current_items[args[0]] = args[0]
         keys = list(self.current_items.keys())
+        #self.read_current()
         for i in keys:
             if i < 0:
                 self.current_items[-i + 1] = self.current_items.pop(i)
@@ -93,9 +95,10 @@ $ python tasks.py report # Statistics""")
             print(f"Error: item with priority {args[0]} does not exist. Nothing deleted.")
 
     def ls(self):
-        num = 1
+        n = 1
         for key in sorted(self.current_items.keys()):
-            print(f"{num}. {self.current_items[key]} [{key}]"); num += 1
+            print(f"{n}. {self.current_items[key]} [{key}]") 
+            n = n +  1
 
     def report(self):
         print("Pending :", len(self.current_items))
