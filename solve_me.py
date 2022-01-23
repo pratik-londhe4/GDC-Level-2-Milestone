@@ -101,11 +101,11 @@ $ python tasks.py report # Statistics""")
             n = n +  1
 
     def report(self):
-        print("Pending :"+ str(len(self.current_items)))
+        print("Pending : "+ str(len(self.current_items)))
         n = 1
         for key in sorted(self.current_items.keys()):
             print(f"{n}. {self.current_items[key]} [{key}]") 
             n = n +  1        
-        print("\nCompleted :" + str(len(self.completed_items)) )
+        print("\nCompleted : " + str(len(self.completed_items)) )
         for i in range(len(self.completed_items)):
             print(f"{i+1}. {self.completed_items[i]}" , end="")
