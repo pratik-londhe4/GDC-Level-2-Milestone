@@ -72,14 +72,14 @@ $ python tasks.py report # Statistics"""
             
         else:
             #self.read_current()
-            same_p = self.current_items.pop(args[0])
+            current_p = int(args[0])
+            while str(current_p) in self.current_items.keys():
+                current_p = current_p + 1
+            for i in range(current_p, int(args[0]), -1):
+                prev = self.current_items.pop(str(i - 1))
+                self.current_items[str(i)] = prev
             self.current_items[args[0]] = args[1]
-            n = int(args[0])+1
-            self.current_items[n] = same_p
-            print("inside else ")
-            
-            
-        self.write_current()
+        self.write_current()          
         print(f'Added task: "{args[1]}" with priority {args[0]}' , end="")
 
     def done(self, args):
